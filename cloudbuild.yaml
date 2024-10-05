@@ -5,5 +5,13 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push','asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:$COMMIT_SHA']
 
+options:
+  logging: CLOUD_LOGGING_ONLY  # Using Cloud Logging only
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET  # Using a user-owned bucket
+
+logs_bucket: gs://hello-world-bucket-44881/  # Your bucket
+
+
+
 images: 
   - 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:$COMMIT_SHA'
