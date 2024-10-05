@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-world-container
-        image: asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app@sha256:0127280ed945de71e9468de275df2c437790338cde813e573810deee09a5acc1 
+        image: asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app@sha256:7e1ca2d1584afef915fdaf98809a98e23aa621c804f26af425beca1f780fafa5        
         ports:
         - containerPort: 8080
 

@@ -8,7 +8,7 @@ steps:
       - 'set'
       - 'image'
       - 'deployment/hello-world-app'
-      - 'hello-world-container=asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:$_COMMIT_SHA'
+      - 'hello-world-container=asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:'
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
