@@ -1,4 +1,3 @@
-
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
@@ -10,9 +9,8 @@ steps:
       - 'asia-south2-a'
       - '--project'
       - 'ankit-44881'
-      - '--verbosity'
-      - 'debug'
-
+    env:
+      - 'CLOUDSDK_GET_CREDENTIALS_OPTS=--quiet'  # Optional: suppresses output
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
@@ -20,7 +18,6 @@ steps:
       - 'image'
       - 'deployment/hello-world-app'
       - 'hello-world-container=asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v2'
-      - '--verbosity=debug'
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
@@ -30,4 +27,3 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-
