@@ -16,7 +16,13 @@ steps:
       - '--project'
       - 'ankit-44881'
 
-  
+  # Set current kubectl context
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'config'
+      - 'current-context'
+    id: 'kubectl-context'
+    waitFor: ['-']
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
