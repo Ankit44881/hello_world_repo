@@ -19,7 +19,7 @@ def hello_world():
             </style>
         </head>
         <body>
-            <h1>Bobo I miss uh!</h1>
+            <h1>Hi Everyone!</h1>
         </body>
     </html>
     '''
