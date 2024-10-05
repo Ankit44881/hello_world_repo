@@ -1,9 +1,9 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}', '.']
+    args: ['build', '-t', 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v2, '.']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}']
+    args: ['push', 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v2']
 
   
   
@@ -11,4 +11,4 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 images:
-  - 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}'
+  - 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v2'
