@@ -1,7 +1,15 @@
 
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['container', 'clusters', 'get-credentials', 'hello-world-cluster', '--zone', 'asia-south2-a', '--project', 'ankit-44881']
+    args:
+      - 'container'
+      - 'clusters'
+      - 'get-credentials'
+      - 'hello-world-cluster'
+      - '--zone'
+      - 'asia-south2-a'
+      - '--project'
+      - 'ankit-44881'
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
@@ -15,5 +23,7 @@ steps:
       - 'rollout'
       - 'status'
       - 'deployment/hello-world-app'
+
 options:
   logging: CLOUD_LOGGING_ONLY
+
