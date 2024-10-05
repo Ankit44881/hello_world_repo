@@ -5,38 +5,8 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}']
 
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'container'
-      - 'clusters'
-      - 'get-credentials'
-      - 'hello-world-cluster'
-      - '--zone'
-      - 'asia-south2-a'
-      - '--project'
-      - 'ankit-44881'
-
-  # Set current kubectl context
-  - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - 'config'
-      - 'current-context'
-    id: 'kubectl-context'
-    waitFor: ['-']
-
-  - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - 'set'
-      - 'image'
-      - 'deployment/hello-world-app'
-      - 'hello-world-container=asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}'
-
-  - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - 'rollout'
-      - 'status'
-      - 'deployment/hello-world-app'
-
+  
+  
 options:
   logging: CLOUD_LOGGING_ONLY
 
