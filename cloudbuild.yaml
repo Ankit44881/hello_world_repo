@@ -1,18 +1,27 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build','-t','asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v1','.']
+    args: ['build', '-t', 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}', '.']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push','asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v1']
+    args: ['push', 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}']
 
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['set','image','deployment/hello-world-app','hello-world-container=asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v1']
+    args:
+      - 'set'
+      - 'image'
+      - 'deployment/hello-world-app'
+      - 'hello-world-container=asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}'
+      - '--context=hello-world-cluster'  # Specify the cluster context here
 
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'rollout'
+      - 'status'
+      - 'deployment/hello-world-app'
+      - '--context=hello-world-cluster'  # Specify the cluster context here
 
 options:
   logging: CLOUD_LOGGING_ONLY
 
-
-
 images: 
-  - 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v1'
+  - 'asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:${COMMIT_SHA}'
