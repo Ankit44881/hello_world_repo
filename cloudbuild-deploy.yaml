@@ -20,6 +20,7 @@ steps:
       - 'image'
       - 'deployment/hello-world-app'
       - 'hello-world-container=asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v2'
+      - '--verbosity=debug'
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
