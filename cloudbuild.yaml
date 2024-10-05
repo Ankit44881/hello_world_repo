@@ -6,7 +6,8 @@ steps:
     args: ['push','asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:$COMMIT_SHA']
 
 
-logs_bucket: gs://hello-world-bucket-44881/  # Your bucket
+options:
+  logging: CLOUD_LOGGING_ONLY
 
 
 
