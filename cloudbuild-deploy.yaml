@@ -10,6 +10,9 @@ steps:
       - 'asia-south2-a'
       - '--project'
       - 'ankit-44881'
+      - '--verbosity'
+      - 'debug'
+
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
