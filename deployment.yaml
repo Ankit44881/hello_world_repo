@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-app
+  
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      apps: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-world-container
+        image: asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v1
+        ports:
+        - containerPort: 80
+
