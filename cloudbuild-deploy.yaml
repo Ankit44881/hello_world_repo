@@ -15,3 +15,5 @@ steps:
       - 'rollout'
       - 'status'
       - 'deployment/hello-world-app'
+options:
+  logging: CLOUD_LOGGING_ONLY
