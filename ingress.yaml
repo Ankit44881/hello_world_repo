@@ -1,0 +1,26 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-world-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip: "my-static-ip"  # Replace with your static IP name
+spec:
+  rules:
+    - host: ""  # Leaving this empty allows traffic to be routed via the IP address
+      http:
+        paths:
+          - path: /service1
+            pathType: Prefix
+            backend:
+              service:
+                name: hello-world-service
+                port:
+                  number: 80
+          - path: /service2
+            pathType: Prefix
+            backend:
+              service:
+                name: hello-world-service2
+                port:
+                  number: 80
