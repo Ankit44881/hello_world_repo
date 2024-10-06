@@ -9,8 +9,7 @@ steps:
       - 'us-central1'
       - '--project'
       - 'ankit-44881'
-    env:
-      - 'CLOUDSDK_GET_CREDENTIALS_OPTS=--quiet'  # Optional: suppresses output
+    
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
