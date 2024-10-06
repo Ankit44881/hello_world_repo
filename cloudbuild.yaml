@@ -3,16 +3,17 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v1'  # Use an environment variable
+      - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v2'  
       - '.'
       
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v1'
+      - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v2'
 
 images:
-  - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v1'
+  - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v2'
+  
 options:
   logging: CLOUD_LOGGING_ONLY
