@@ -5,8 +5,8 @@ steps:
       - 'clusters'
       - 'get-credentials'
       - 'hello-world-cluster'
-      - '--zone'
-      - 'asia-south2-a'
+      - '--region'
+      - 'us-central1'
       - '--project'
       - 'ankit-44881'
     env:
@@ -16,8 +16,8 @@ steps:
     args:
       - 'set'
       - 'image'
-      - 'deployment/hello-world-app'
-      - 'hello-world-container=asia-south2-docker.pkg.dev/ankit-44881/hello-world-repo/hello-world-app:v2'
+      - 'deployment/hello-world-app2'
+      - 'hello-world-container=us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v3'
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
