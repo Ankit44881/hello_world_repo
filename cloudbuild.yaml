@@ -1,19 +1,19 @@
+version: &version v2  # Declare the version variable using an anchor
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '-t'
-      - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v1'
+      - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:${version}'  # Reference the version variable
       - '.'
   
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v1'
+      - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:${version}'  # Reference the version variable
 
 images:
-  - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:v1'
+  - 'us-central1-docker.pkg.dev/ankit-44881/hello-repo/hello-image:${version}'  # Reference the version variable
 options:
   logging: CLOUD_LOGGING_ONLY
-
